@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_promo"
+        android:icon="@drawable/promo_black"
+        android:title="Promo" />
+
+    <item
+        android:id="@+id/navigation_jadwal"
+        android:icon="@drawable/jadwal_black"
+        android:title="Jadwal" />
+
+    <item
+        android:id="@+id/navigation_aktivitas"
+        android:icon="@drawable/aktivitas_black"
+        android:title="Aktivitas" />
+
+</menu>

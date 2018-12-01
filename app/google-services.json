@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "927949714948",
+    "firebase_url": "https://land-ef057.firebaseio.com",
+    "project_id": "land-ef057",
+    "storage_bucket": "land-ef057.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927949714948:android:0d11262a0e8664fe",
+        "android_client_info": {
+          "package_name": "com.papb.imamfrf.land"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927949714948-nqats2imiqkn97o5vbjko739sj8hrblf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.papb.imamfrf.land",
+            "certificate_hash": "33eb2429966b593fb8207b1f52a3e47a7d9f62af"
+          }
+        },
+        {
+          "client_id": "927949714948-juaahciupbs0lvc6c3nvilebk32r8ejv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPDe-6-PLbeuR_ZNBR1ET6LdbAidUtmEE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927949714948-juaahciupbs0lvc6c3nvilebk32r8ejv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
