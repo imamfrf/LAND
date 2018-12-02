@@ -146,16 +146,8 @@ NavigationView.OnNavigationItemSelectedListener{
                 ft.remove(new JadwalFragment());
                 ft.commit();
                 break;
-            case R.id.nav_settings:
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-                drawer.closeDrawer(GravityCompat.START);
-                break;
             case R.id.nav_user_info:
                 startActivity(new Intent(MainActivity.this, UserInfo.class));
-                drawer.closeDrawer(GravityCompat.START);
-                break;
-            case R.id.nav_about:
-                startActivity(new Intent(MainActivity.this,AboutActivity.class));
                 drawer.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_logout:

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer"
-    android:background="@drawable/biru"
+    android:background="@drawable/bg_land_lightblue"
     tools:context=".MainActivity">
 
 

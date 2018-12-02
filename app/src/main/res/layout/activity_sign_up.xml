@@ -4,17 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alex.oxylaundryonline.SignUp"
-    android:background="@drawable/gradient">
+    android:background="@drawable/bg_land_small">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/putih"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,21 +31,22 @@
                     android:layout_margin="15dp"
                     android:layout_marginBottom="20dp"
                     android:text="Registrasi"
-                    android:textColor="#5DB9E8"
+                    android:textColor="#000000"
+                    android:textSize="30sp"
                     android:textStyle="bold"
 
                     />
 
                 <LinearLayout
-                    android:layout_width="280dp"
+                    android:layout_width="325dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:background="#FFFFFF"
+                    android:background="@color/white_transparent"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <LinearLayout
-                        android:layout_width="230dp"
+                        android:layout_width="294dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -75,11 +67,11 @@
                             android:layout_weight="5"
                             android:backgroundTint="#10BFEA"
                             android:hint="Nama"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="230dp"
+                        android:layout_width="294dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -99,13 +91,13 @@
                             android:layout_gravity="center"
                             android:layout_weight="5"
                             android:backgroundTint="#10BFEA"
-                            android:hint="email"
+                            android:hint="Email"
                             android:inputType="textEmailAddress"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="230dp"
+                        android:layout_width="294dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -127,11 +119,11 @@
                             android:backgroundTint="#10BFEA"
                             android:hint="Kata Sandi"
                             android:inputType="textPassword"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="230dp"
+                        android:layout_width="294dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -152,11 +144,11 @@
                             android:backgroundTint="#10BFEA"
                             android:hint="Ulangi Kata Sandi"
                             android:inputType="textPassword"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="230dp"
+                        android:layout_width="294dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -176,11 +168,11 @@
                             android:layout_weight="5"
                             android:backgroundTint="#10BFEA"
                             android:hint="Nomor Telepon"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="230dp"
+                        android:layout_width="294dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:orientation="vertical">
@@ -188,8 +180,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alamat"
-                            android:textSize="10sp" />
+                            android:text="Alamat Lengkap"
+                            android:textSize="12sp" />
 
                         <EditText
                             android:id="@+id/txt_alamat"
@@ -213,6 +205,7 @@
                         android:layout_width="200dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
                         android:background="#FF7C06"
                         android:text="DAFTAR"
                         android:textColor="#FFFFFF" />

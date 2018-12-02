@@ -4,11 +4,7 @@
         android:id="@+id/user_info"
         android:title="Info Pengguna">
     </item>
-
-    <item
-        android:id="@+id/settings"
-        android:title="Pengaturan">
-    </item>
+    
 
 
 </menu>

@@ -4,18 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserInfo">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/biru"
-        />
+    tools:context=".UserInfo"
+    android:background="@drawable/bg_land_lightblue">
 
     <Button
         android:id="@+id/btn_editUserDt"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="140dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginBottom="200dp"
         android:layout_marginEnd="8dp"
@@ -23,6 +19,7 @@
         android:background="#FF7C06"
         android:text="@string/edit_info"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -45,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="@string/no_hp"
+        android:text="No. Telp : "
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,12 +64,12 @@
         android:id="@+id/tv_phoneInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/darker_gray"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/tv_addrInfo"
@@ -80,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />

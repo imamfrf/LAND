@@ -34,6 +34,8 @@ public class EditUserInfo extends AppCompatActivity {
         et_addrEdt = (EditText) findViewById(R.id.et_addrEdt);
         btn_saveChg = (Button) findViewById(R.id.btn_saveChange);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mDatabase.child(auth.getCurrentUser().getUid()).child("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -85,5 +87,11 @@ public class EditUserInfo extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

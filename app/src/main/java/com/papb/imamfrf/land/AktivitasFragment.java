@@ -69,7 +69,7 @@ public class AktivitasFragment extends android.support.v4.app.Fragment {
                         } else if (jenis.equals("3 Bulan")) {
                             tglAkhir = sn.child("Tanggal").child("12-day").getValue(String.class);
                         } else {
-                            tglAkhir = "";
+                            tglAkhir = "-";
                         }
 
                         String next = "";

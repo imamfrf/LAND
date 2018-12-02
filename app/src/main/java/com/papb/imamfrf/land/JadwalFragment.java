@@ -36,9 +36,8 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
     private TextView biaya, txt_keterangan_promo;
     private Button bt_submit, bt_cek_promo;
     private EditText input_promo;
-    int count=0;
     int quantity;
-    String day;
+    String day, promo = "ok";
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -137,16 +136,17 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
 
                 //1 kali
                 if (quantity == 1){
+                    int count = 0;
                     for (int i = 0; i < 7; i++){
                         Calendar d = Calendar.getInstance();
                         d.add(Calendar.DATE, i);
                         String day1 = (String) DateFormat.format("EEE", d);
                         if (day1.equalsIgnoreCase(day)) {
+                            count++;
                             String date = (String) DateFormat.format("dd-MMMM-yyyy", d);
-                            Log.d("alex", date);
 //                            post.put("UID", mAuth.getCurrentUser().getUid());
 //                            post.put("Jenis", spinner.getSelectedItem().toString());
-                            post1.put("0" + Integer.toString(count) + "-day", date);
+                            post1.put("0" +Integer.toString(count) +"-day", date);
                         }
                     }
 
@@ -216,57 +216,56 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                 post.put("Kode_Promo", input_promo.getText().toString());
 
                 //confirmation dialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Buat Pesanan")
-                        .setMessage("Apakah Anda yakin akan memesan laundry? Pesanan tidak dapat dibatalkan")
-                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                //store data
-                                String idPesanan = db.getReference("Pesanan").push().getKey();
-                                DatabaseReference ref = db.getReference("Pesanan").child(idPesanan);
-                                DatabaseReference ref2 = db.getReference("Pesanan").child(idPesanan).child("Tanggal");
-                                ref.setValue(post).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()){
-                                            Snackbar.make(inflate, "Pesanan Berhasil Dibuat", Snackbar.LENGTH_LONG).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Buat Pesanan")
+                            .setMessage("Apakah Anda yakin akan memesan laundry? Pesanan tidak dapat dibatalkan")
+                            .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //store data
+                                    String idPesanan = db.getReference("Pesanan").push().getKey();
+                                    DatabaseReference ref = db.getReference("Pesanan").child(idPesanan);
+                                    DatabaseReference ref2 = db.getReference("Pesanan").child(idPesanan).child("Tanggal");
+                                    ref.setValue(post).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+                                                Snackbar.make(inflate, "Pesanan Berhasil Dibuat", Snackbar.LENGTH_LONG).show();
 
-                                            new Handler().postDelayed(new Runnable() {
-                                                @Override
-                                                public void run() {
+                                                new Handler().postDelayed(new Runnable() {
+                                                    @Override
+                                                    public void run() {
 
 //                                                     Intent i=new Intent(getContext(),((MainActivity)getActivity()).loadFragment(new AktivitasFragment()));
 //                                                     );
 //                                                    startActivity(i);
-                                                    ((MainActivity)getActivity()).loadFragment(new AktivitasFragment());
-                                                    ((MainActivity)getActivity()).btmNav.setSelectedItemId(R.id.navigation_aktivitas);
+                                                        ((MainActivity)getActivity()).loadFragment(new AktivitasFragment());
+                                                        ((MainActivity)getActivity()).btmNav.setSelectedItemId(R.id.navigation_aktivitas);
 
-                                                }
-                                            }, 1000);
+                                                    }
+                                                }, 1000);
 
+                                            }
+
+                                            else{
+                                                Snackbar.make(inflate, "Pesanan Dibatalkan", Snackbar.LENGTH_LONG).show();
+                                            }
                                         }
-
-                                        else{
-                                            Snackbar.make(inflate, "Pesanan Dibatalkan", Snackbar.LENGTH_LONG).show();
-                                        }
-                                    }
-                                });;
-                                ref2.setValue(post1);
+                                    });;
+                                    ref2.setValue(post1);
 
 
 
-                            }
-                        })
-                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // do nothing
-                            }
-                        })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .show();
+                                }
+                            })
+                            .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // do nothing
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
 
-            }
-
+                }
 
         });
 
@@ -279,12 +278,17 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                 String kode_promo_input = input_promo.getText().toString();
                 if (kode_promo_input.equalsIgnoreCase("AKHIRBULANMALESNYUCI")){
                     txt_keterangan_promo.setText("Anda akan mendapatkan potongan harga sebesar 20%");
+                    promo = "ok";
                 } else if (kode_promo_input.equalsIgnoreCase("TENGAHBULANASIK")){
                     txt_keterangan_promo.setText("Anda akan mendapatkan potongan harga sebesar 10%");
+                    promo = "ok";
+
                 } else if (kode_promo_input.equalsIgnoreCase("GRATISONGKIR")){
                     txt_keterangan_promo.setText("Anda akan mendapatkan gratis ongkos antar jemput");
+                    promo = "ok";
                 } else {
                     Toast.makeText(getContext(),"Kode Promo Tidak Sesuai",Toast.LENGTH_SHORT).show();
+                    promo = "no";
                 }
             }
         });

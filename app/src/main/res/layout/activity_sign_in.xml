@@ -4,17 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/bg_land_small"
     >
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/putih"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,23 +26,24 @@
                 android:padding="50dp">
 
                 <ImageView
-                    android:layout_width="150dp"
+                    android:layout_width="180dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/logo_oxy"
-                    app:srcCompat="@drawable/logo_oxy" />
+                    android:src="@drawable/logo_land_white_notag"
+                    app:srcCompat="@drawable/logo_land_white_notag" />
 
                 <LinearLayout
-                    android:layout_width="230dp"
-                    android:layout_height="200dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="#FFFFFF"
+                    android:background="@color/white_transparent"
                     android:orientation="vertical"
                     android:padding="15dp">
 
                     <LinearLayout
-                        android:layout_width="200dp"
+                        android:layout_width="258dp"
                         android:layout_height="50dp"
+                        android:layout_margin="8dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -71,14 +63,15 @@
                             android:backgroundTint="#10BFEA"
                             android:hint="Email"
                             android:inputType="textEmailAddress"
-                            android:textSize="10sp"
+                            android:textSize="12sp"
 
                             />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="200dp"
+                        android:layout_width="258dp"
                         android:layout_height="50dp"
+                        android:layout_margin="8dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -98,7 +91,7 @@
                             android:backgroundTint="#10BFEA"
                             android:hint="Kata Sandi"
                             android:inputType="textPassword"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
 
@@ -106,7 +99,7 @@
                         android:id="@+id/btn_signIn"
                         style="@style/Base.Widget.AppCompat.Button.Borderless"
                         android:layout_width="140dp"
-                        android:layout_height="30dp"
+                        android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginBottom="7dp"
                         android:layout_marginTop="15dp"
@@ -122,31 +115,31 @@
                         android:text="Lupa Kata Sandi?"
                         android:textColor="#FF7C06"
                         android:textSize="10sp" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:paddingRight="30dp">
+                    <LinearLayout
+                        android:layout_width="197dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:paddingRight="30dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Belum memiliki akun? "
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Belum memiliki akun? "
+                            android:textColor="#000000"
+                            android:textSize="10sp" />
 
-                    <TextView
-                        android:id="@+id/daftar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DAFTAR"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/daftar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DAFTAR"
+                            android:textColor="#FF7C06"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
 
 

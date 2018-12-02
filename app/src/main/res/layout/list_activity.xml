@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="40dp">
+    android:layout_marginBottom="20dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="180dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,15 +20,15 @@
                 android:layout_height="90dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:src="@drawable/logo_oxy" />
+                android:src="@drawable/logo_land_mini" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="25dp"
                 android:layout_gravity="center"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,37 +62,34 @@
                         android:text="32839201" />
                 </LinearLayout>
 
+
+                <TextView
+                    android:id="@+id/tv_tglAwal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal Awal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="sampai dengan"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tv_tglAkhir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal Akhir" />
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tv_tglAwal"
                         android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:text="Tanggal Awal" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:text=" s/d " />
-
-                    <TextView
-                        android:id="@+id/tv_tglAkhir"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:text="Tanggal Akhir" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
+                        android:layout_height="wrap_content"
                         android:text="Penjemputan Selanjutnya : " />
                 </LinearLayout>
 

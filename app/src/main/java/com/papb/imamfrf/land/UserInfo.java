@@ -28,6 +28,8 @@ public class UserInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
         auth = FirebaseAuth.getInstance();
         btn_editUserDt = (Button)findViewById(R.id.btn_editUserDt);
@@ -76,5 +78,11 @@ public class UserInfo extends AppCompatActivity {
                 startActivity(new Intent(UserInfo.this, EditUserInfo.class));
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
