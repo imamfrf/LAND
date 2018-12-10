@@ -38,15 +38,16 @@
                     />
 
                 <LinearLayout
-                    android:layout_width="325dp"
+                    android:layout_width="340dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_margin="10dp"
                     android:background="@color/white_transparent"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="15dp">
 
                     <LinearLayout
-                        android:layout_width="294dp"
+                        android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -67,11 +68,12 @@
                             android:layout_weight="5"
                             android:backgroundTint="#10BFEA"
                             android:hint="Nama"
+                            android:inputType="textCapWords|textPersonName"
                             android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="294dp"
+                        android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -97,7 +99,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="294dp"
+                        android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -123,7 +125,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="294dp"
+                        android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -148,7 +150,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="294dp"
+                        android:layout_width="300dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -168,11 +170,12 @@
                             android:layout_weight="5"
                             android:backgroundTint="#10BFEA"
                             android:hint="Nomor Telepon"
+                            android:inputType="phone"
                             android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="294dp"
+                        android:layout_width="300dp"
                         android:layout_height="70dp"
                         android:layout_gravity="center"
                         android:orientation="vertical">
@@ -190,7 +193,7 @@
                             android:layout_weight="5"
                             android:backgroundTint="#10BFEA"
                             android:gravity="top|left"
-                            android:inputType="textMultiLine"
+                            android:inputType="textCapWords|textMultiLine"
                             android:lines="8"
                             android:maxLength="120"
                             android:maxLines="10"
@@ -205,19 +208,12 @@
                         android:layout_width="200dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="20dp"
                         android:background="#FF7C06"
                         android:text="DAFTAR"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_wrong_pass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="7dp"
-                    android:text="" />
 
             </LinearLayout>
         </RelativeLayout>

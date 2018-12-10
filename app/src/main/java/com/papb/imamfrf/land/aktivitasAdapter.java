@@ -34,7 +34,7 @@ public class aktivitasAdapter extends RecyclerView.Adapter<aktivitasAdapter.View
     public void onBindViewHolder(final aktivitasAdapter.ViewHolder holder, final int position) {
         //binding value dari list item ke holder
         List_Item_Aktivitas listItem = listItems.get(position);
-        holder.noOrder.setText(listItem.getNoOrder());
+        holder.hari.setText(listItem.getNoOrder());
         holder.paket.setText(listItem.getJenis());
         holder.tglAwal.setText(listItem.getTglAwal());
         holder.tglAkhir.setText(listItem.getTglAkhir());
@@ -62,12 +62,12 @@ public class aktivitasAdapter extends RecyclerView.Adapter<aktivitasAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView noOrder, paket, tglAwal, tglAkhir, next;
+        public TextView hari, paket, tglAwal, tglAkhir, next;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            noOrder = itemView.findViewById(R.id.tv_noOrder);
+            hari = itemView.findViewById(R.id.tv_hari);
             paket = itemView.findViewById(R.id.tv_jenisPaket);
             tglAwal = itemView.findViewById(R.id.tv_tglAwal);
             tglAkhir = itemView.findViewById(R.id.tv_tglAkhir);

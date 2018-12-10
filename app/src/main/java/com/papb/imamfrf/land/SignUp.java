@@ -42,7 +42,6 @@ public class SignUp extends AppCompatActivity {
         nama = (EditText) findViewById(R.id.txt_nama);
         alamat = (EditText) findViewById(R.id.txt_alamat);
         nomorHP = (EditText) findViewById(R.id.txt_nomorHP);
-        wrongPass = (TextView) findViewById(R.id.txt_wrong_pass);
         submit = (Button) findViewById(R.id.btn_submit);
         auth = FirebaseAuth.getInstance();
 
@@ -50,36 +49,45 @@ public class SignUp extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (password.getText().toString().equals(retypePassword.getText().toString()) && agreement.isChecked()) {
-
-                    final String emailString = email.getText().toString().trim();
-                    String passwordString = password.getText().toString().trim();
-                    Log.d("cekEmail", emailString);
-                    auth.createUserWithEmailAndPassword(emailString, passwordString).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                String namaString = nama.getText().toString().trim();
-                                String alamatString = alamat.getText().toString().trim();
-                                String nomorHPString = nomorHP.getText().toString().trim();
-
-                                //store user's data
-                                HashMap<String, String> dataMap = new HashMap<String, String>();
-                                dataMap.put("nama", namaString);
-                                dataMap.put("alamat", alamatString);
-                                dataMap.put("nomorHP", nomorHPString);
-                                dataMap.put("email", emailString);
-                                mDatabase.child("Users").child(auth.getCurrentUser().getUid().toString()).setValue(dataMap);
-                                Toast.makeText(SignUp.this, "Akun berhasil dibuat, silakan sign in", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(SignUp.this, SignInActivity.class));
-                                finish();
-                            }
-                            else {
-                                Toast.makeText(SignUp.this, task.getException().getMessage().toString(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                if (password.getText().toString().length() < 6){
+                    password.setError("Password minimal 6 karakter");
                 }
+                else{
+                    if (password.getText().toString().equals(retypePassword.getText().toString())) {
+
+                        final String emailString = email.getText().toString().trim();
+                        String passwordString = password.getText().toString().trim();
+                        //Log.d("cekEmail", emailString);
+                        auth.createUserWithEmailAndPassword(emailString, passwordString).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()){
+                                    String namaString = nama.getText().toString().trim();
+                                    String alamatString = alamat.getText().toString().trim();
+                                    String nomorHPString = nomorHP.getText().toString().trim();
+
+                                    //store user's data
+                                    HashMap<String, String> dataMap = new HashMap<String, String>();
+                                    dataMap.put("nama", namaString);
+                                    dataMap.put("alamat", alamatString);
+                                    dataMap.put("nomorHP", nomorHPString);
+                                    dataMap.put("email", emailString);
+                                    mDatabase.child("Users").child(auth.getCurrentUser().getUid().toString()).setValue(dataMap);
+                                    Toast.makeText(SignUp.this, "Registrasi Berhasil, Silakan Login", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(SignUp.this, SignInActivity.class));
+                                    finish();
+                                }
+                                else {
+                                    Toast.makeText(SignUp.this, task.getException().getMessage().toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                    else {
+                        Toast.makeText(SignUp.this, "Password tidak cocok", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
 
             }
         });

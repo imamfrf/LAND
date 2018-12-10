@@ -1,7 +1,9 @@
 package com.papb.imamfrf.land;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -35,6 +37,7 @@ NavigationView.OnNavigationItemSelectedListener{
     private FirebaseAuth.AuthStateListener mListener;
     public NavigationView drawNav;
     public BottomNavigationView btmNav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +49,7 @@ NavigationView.OnNavigationItemSelectedListener{
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if (user != null) {
-                    //Log.d(TAG, "sing in : "+user.getUid() );
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Keluar ", Toast.LENGTH_SHORT).show();
 
@@ -58,11 +61,15 @@ NavigationView.OnNavigationItemSelectedListener{
 
             }
         };
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         //btm nav
         btmNav = findViewById(R.id.navigation);
         btmNav.setOnNavigationItemSelectedListener(this);
+
+        //draw nav
         drawNav = findViewById(R.id.nav_view);
         drawNav.setNavigationItemSelectedListener(this);
         loadFragment(new PromoFragment());
@@ -128,22 +135,25 @@ NavigationView.OnNavigationItemSelectedListener{
                 loadFragment(fragment);
                 ft.remove(new PromoFragment());
                 ft.remove(new JadwalFragment());
+                ft.remove(new SettingsFragment());
                 ft.commit();
             break;
             case R.id.navigation_jadwal:
                 fragment = new JadwalFragment();
                 loadFragment(fragment);
-                drawNav.getMenu().getItem(1).setChecked(true);
+      //          drawNav.getMenu().getItem(1).setChecked(true);
                 ft.remove(new PromoFragment());
                 ft.remove(new AktivitasFragment());
+                ft.remove(new SettingsFragment());
                 ft.commit();
                 break;
             case R.id.navigation_aktivitas:
                 fragment = new AktivitasFragment();
                 loadFragment(fragment);
-                drawNav.getMenu().getItem(1).setChecked(true);
+        //        drawNav.getMenu().getItem(1).setChecked(true);
                 ft.remove(new PromoFragment());
                 ft.remove(new JadwalFragment());
+                ft.remove(new SettingsFragment());
                 ft.commit();
                 break;
             case R.id.nav_user_info:
@@ -152,6 +162,20 @@ NavigationView.OnNavigationItemSelectedListener{
                 break;
             case R.id.nav_logout:
                 auth.signOut();
+            case R.id.nav_settings:
+                fragment = new SettingsFragment();
+                loadFragment(fragment);
+               // drawNav.getMenu().getItem().setChecked(true);
+                ft.remove(new PromoFragment());
+                ft.remove(new JadwalFragment());
+                ft.remove(new AktivitasFragment());
+                ft.commit();
+
+                for (int i = 0; i < btmNav.getMenu().size(); i++){
+                    btmNav.getMenu().getItem(i).setChecked(true);
+                }
+                drawer.closeDrawer(GravityCompat.START);
+                break;
         }
         return true;
     }

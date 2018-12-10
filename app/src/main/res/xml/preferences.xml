@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:defaultValue="true"
+        android:title="Notifikasi Penjemputan"
+        android:key="switch_notif"
+        android:summary="Notifikasi pada hari penjemputan laundry Anda">
+
+    </SwitchPreference>
+</PreferenceScreen>
