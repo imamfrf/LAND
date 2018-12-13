@@ -147,28 +147,34 @@ public class AktivitasFragment extends android.support.v4.app.Fragment {
                         String currentDay = dFormat.format(today);
 
                         if (notif == true){
-                            if (currentDay.equalsIgnoreCase(hari)){
-                                Intent intent = new Intent(getActivity(), MainActivity.class);
-                                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-                                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getActivity(), "land")
-                                        .setContentIntent(pendingIntent)
-                                        .setAutoCancel(true)
-                                        .setSmallIcon(R.drawable.logo_land_mini)
-                                        .setContentTitle("Hari Penjemputan Laundry")
-                                        .setContentText("Hari ini laundry anda akan dijemput")
-                                        .setLights(Color.RED, 1000, 300)
-                                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                                        .setVibrate(new long[]{100, 200, 300, 400, 500})
-                                        .setDefaults(Notification.DEFAULT_VIBRATE)
-                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                            try{
+                                if (currentDay.equalsIgnoreCase(hari)){
+                                    Intent intent = new Intent(getContext(), MainActivity.class);
+                                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+                                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getActivity(), "land")
+                                            .setContentIntent(pendingIntent)
+                                            .setAutoCancel(true)
+                                            .setSmallIcon(R.drawable.logo_land_mini)
+                                            .setContentTitle("Hari Penjemputan Laundry")
+                                            .setContentText("Hari ini laundry anda akan dijemput")
+                                            .setLights(Color.RED, 1000, 300)
+                                            .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                                            .setVibrate(new long[]{100, 200, 300, 400, 500})
+                                            .setDefaults(Notification.DEFAULT_VIBRATE)
+                                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-                                NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-                                //Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                                notificationManager.notify(1, mBuilder.build());
+                                    NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+                                    //Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                                    notificationManager.notify(1, mBuilder.build());
+
+                                }
+                            }
+                            catch (Exception e){
 
                             }
+
                         }
 
                     }

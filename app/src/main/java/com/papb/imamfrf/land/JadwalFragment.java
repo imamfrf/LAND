@@ -250,7 +250,7 @@ public class JadwalFragment extends android.support.v4.app.Fragment {
                                                 Snackbar.make(inflate, "Pesanan Dibatalkan", Snackbar.LENGTH_LONG).show();
                                             }
                                         }
-                                    });;
+                                    });
                                     ref2.setValue(post1);
 
 
